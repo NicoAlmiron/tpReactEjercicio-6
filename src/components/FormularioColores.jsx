@@ -36,16 +36,24 @@ const FormularioColores = () => {
     setListaColores([...listaColores, color]);
     setColor("");
     colores.push(color);
-
     setColorCuadro([
       ...colorCuadro,
       coloresCuadro.find((itemColor) => itemColor === color),
     ]);
-
     cuadrados.push(coloresCuadro.find((itemColor) => itemColor === color));
-
     localStorage.setItem("colores", JSON.stringify(colores));
     localStorage.setItem("cuadrados", JSON.stringify(cuadrados));
+  };
+
+  const borrarColor = (index) => {
+    let listaColoresFiltrada = listaColores.filter(
+      (itemColores, i) => index !== i
+    );
+    setListaColores(listaColoresFiltrada);
+    colores.splice(index, 1);
+    localStorage.setItem("colores", JSON.stringify(colores));
+    cuadrados.splice(index, 1);
+    localStorage.setItem("cuadraros", JSON.stringify(cuadrados));
   };
 
   return (
@@ -89,7 +97,10 @@ const FormularioColores = () => {
           </Form>
         </article>
       </section>
-      <ListaColores listaColores={listaColores}></ListaColores>
+      <ListaColores
+        listaColores={listaColores}
+        borrarColor={borrarColor}
+      ></ListaColores>
     </Container>
   );
 };

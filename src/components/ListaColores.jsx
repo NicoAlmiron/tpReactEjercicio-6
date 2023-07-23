@@ -1,13 +1,21 @@
 import React from "react";
 import ItemColores from "./ItemColores";
+import { ListGroup } from "react-bootstrap";
 
-const ListaColores = ({ listaColores }) => {
+const ListaColores = ({ listaColores, borrarColor }) => {
   return (
-    <section className="d-flex justify-content-evenly flex-wrap">
-      {listaColores.map((color, i) => (
-        <ItemColores key={i} nombreColor={color}></ItemColores>
-      ))}
-    </section>
+    <ListGroup.Item>
+      <section className="d-flex justify-content-evenly flex-wrap">
+        {listaColores.map((color, i) => (
+          <ItemColores
+            key={i}
+            nombreColor={color}
+            borrarColor={borrarColor}
+            index={i}
+          ></ItemColores>
+        ))}
+      </section>
+    </ListGroup.Item>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
 
-const ItemColores = ({ nombreColor }) => {
+const ItemColores = ({ nombreColor, borrarColor, index }) => {
   return (
-    <>
+    <ListGroup.Item>
       <article className="d-flex flex-column border border-dark rounded-3 m-2">
         <div className="text-start">
           <h5 className="text-warning p-2">{nombreColor}</h5>
@@ -18,10 +18,12 @@ const ItemColores = ({ nombreColor }) => {
           ></Card>
         </div>
         <div className="text-end p-2">
-          <Button variant="danger">Borrar</Button>
+          <Button variant="danger" onClick={() => borrarColor(index)}>
+            Borrar
+          </Button>
         </div>
       </article>
-    </>
+    </ListGroup.Item>
   );
 };
 
