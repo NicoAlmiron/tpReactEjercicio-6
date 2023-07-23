@@ -9,7 +9,7 @@ function App() {
       <Container className="pt-5">
         <FormularioColores></FormularioColores>
       </Container>
-      <footer className="text-center bg-dark text-light py-4">
+      <footer className="text-center bg-dark text-light py-4 ">
         <p>Todos los derechos reservados &copy; 2023 </p>
       </footer>
     </>
